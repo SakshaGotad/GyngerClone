@@ -3,21 +3,16 @@ import SplineCube from "./SplineCube";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-200 m-auto flex items-center justify-center ">
+    <section className="relative min-h-200 m-auto flex items-center justify-center bg-[#022C28]">
       {/* 🎬 Background iframe */}
-      <div className="absolute inset-0 -z-20 flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <div className="w-[100vw] h-[100vh]  flex items-center justify-center transform origin-center">
-          {/* <iframe
-            src="https://my.spline.design/cubic-skFgWxuaDy7Q9KFm1RQcRCLC/"
-            frameBorder="0"
-            allowFullScreen
-            className="w-full h-full pointer-events-none"
-          /> */}
+         
           <SplineCube/>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-[#022C28]/70 -z-10"></div>
+      <div className="absolute inset-0 bg-[#022C28]/70 z-10"></div>
 
       <div className="relative z-10 max-w-2xl text-center space-y-6 pt-28 text-white">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">

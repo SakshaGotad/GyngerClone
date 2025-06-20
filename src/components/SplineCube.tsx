@@ -7,7 +7,6 @@ export default function SplineCube() {
         scene="https://prod.spline.design/38g6zXz3HYiMzOCR/scene.splinecode" 
         width={1700}
         height={1200}
-      
       />
     </main>
   );
