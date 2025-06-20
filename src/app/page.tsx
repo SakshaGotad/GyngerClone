@@ -1,4 +1,5 @@
 // import Navbar from '@/components/Navbar'
+import AiSection from "@/components/AiSection";
 import Blueprint from "@/components/Blueprint";
 import HeroSection from "@/components/HeroSection";
 import { MarqueeDemo } from "@/components/MarqueeDemo";
@@ -16,6 +17,7 @@ const page = () => {
     <Blueprint/>
     <Products/>
     <Solutions/>
+    <AiSection/>
     </>
   );
 };

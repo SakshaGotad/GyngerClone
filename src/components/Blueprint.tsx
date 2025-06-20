@@ -18,10 +18,10 @@ const dummyData = [
 
 const Blueprint = () => {
   return (
-    <section className="h-[900px]  py-3">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="h-[900px]  py-8 mt-20 ">
+      <div className="max-w-7xl mx-auto px-4 ">
         <div className="relative flex flex-row justify-between items-center mb-12">
-          <h2 className="text-5xl text-center">
+          <h2 className="text-5xl text-center -z-10">
             Your blueprint for <span className="italic">lasting growth</span>
           </h2>
           <button className="group absolute right-0 bottom-0 inline-flex items-center text-gray-500 font-medium hover:text-gray-900 transition">
