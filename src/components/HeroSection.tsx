@@ -1,5 +1,5 @@
 import React from "react";
-import SplineCube from "./SplineCube";
+// import SplineCube from "./SplineCube";
 
 const HeroSection = () => {
   return (
@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <div className="w-[100vw] h-[100vh]  flex items-center justify-center transform origin-center">
          
-          <SplineCube/>
+          {/* <SplineCube/> */}
         </div>
       </div>
 

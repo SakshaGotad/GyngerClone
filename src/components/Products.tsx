@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image"; // If using Next.js
+import FeatureCard from "./FeatureCard";
 
 
 const solutions = [
@@ -8,14 +9,14 @@ const solutions = [
     description:
       "Extend flexible payment offers to your customers while getting paid up front.",
     cta: "Explore Gynger Pay",
-    icon: '/image.png',
+    icon: <FeatureCard/>,
     bgLabel: "Pay",
     link: "/gynger-pay",
   },
   {
     title: "Gynger Capital",
     description:
-      "Access fast, non-dilutive capital with embedded AP & AR financing solutions.",
+      "Access fast, non-dilutive capital with Gynger Capital's embedded AP and AR financing solutions.",
     cta: "Explore Capital",
     icon: '/image.png',
     bgLabel: "Capital",
@@ -69,7 +70,7 @@ const Products = () => {
            {/* Flex Container */}
            <div className="flex flex-row justify-between items-center w-full gap-6">
              {/* Left Content */}
-             <div className=" relative flex-1 flex-col">
+             <div className=" relative w-1/2  flex-col ">
                 <div className="absolute -top-50">
                 <h3 className="text-5xl font-thin mb-2">{item.title}</h3>
                 </div>
@@ -102,13 +103,14 @@ const Products = () => {
          
              {/* Right Icon/Image */}
              <div className="flex-shrink-0 ">
-               <Image
+               {/* <Image
                  src={item.icon}
                  alt={item.title}
                  width={400}
                  height={400}
                  className="object-contain"
-               />
+               /> */}
+               {item.icon}
              </div>
            </div>
          </div>
