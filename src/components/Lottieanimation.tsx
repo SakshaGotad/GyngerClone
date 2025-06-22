@@ -3,13 +3,11 @@
 import React from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-const LottieAnimation = () => {
+const LottieAnimation = ({ url }: { url: string }) => {
   return (
     <div className="w-64 h-64">
       <DotLottieReact
-      src="https://lottie.host/4db99841-8804-4018-a688-d0fa83fcd714/1vsvbp1R9K.lottie"
-      loop
-      autoplay
+     src={url}  autoplay  loop
     />
     </div>
   );

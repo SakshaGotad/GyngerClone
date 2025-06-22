@@ -1,11 +1,11 @@
-'use cline'
+'use client'
 import React from 'react'
 import { Player } from '@lottiefiles/react-lottie-player';
 
-const Lottie1 = () => {
+const Lottie1 = ({ url }: { url: string }) => {
   return (
    <>
-   <Player src="https://cdn.lottielab.com/l/B7z184zAmyKGTt.json" autoplay />
+   <Player src={url}  autoplay  loop/>
    </>
   )
 }

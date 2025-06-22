@@ -16,7 +16,7 @@ export default async function HeroSection () {
       include_branch: false,
     },
   })
-  console.log(response);
+  // console.log(response);
   const data: HeroEntry | undefined = response?.[0];
 
 

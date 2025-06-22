@@ -22,17 +22,14 @@ export const getData = async ({
           .map(key => `${key}=${params[key].toString()}`)
           .join('&')
       : '';
-      console.log("blog query",query)
+      console.log(" query",query)
   
       const url = entryUid
-        ? `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries/${entryUid}?${includeAllReferences? "include_all=true":""}locale=en-us${query ? `&${query}` : ''}`
-        : `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries?&include[]=author&locale=en-us${query ? `&${query}` : ''}`;
+        ? `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries/${entryUid}?locale=en-us${query ? `&${query}` : ''}`
+        : `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries?&locale=en-us${query ? `&${query}` : ''}`;
         
-        // const url = entryUid
-        // ? `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries/${entryUid}?&include[]=${referenceFieldUID}locale=en-us${query ? `&${query}` : ''}`
-        // : `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries?include[]=bltd20e24f01050d83c&locale=en-us${query ? `&${query}` : ''}`;
-        
-        console.log("blog url:",url)
+       
+        console.log(" url:",url)
       const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -42,8 +39,7 @@ export const getData = async ({
         },
         cache: 'no-store',
       });
-      // console.log(response);
-  
+     
       if (!response.ok) {
         throw new Error(`Error fetching data: ${response.status} ${response.statusText}`);
       }
