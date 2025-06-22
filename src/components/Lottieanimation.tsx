@@ -7,10 +7,10 @@ const LottieAnimation = () => {
   return (
     <div className="w-64 h-64">
       <DotLottieReact
-        src="https://lottie.host/3aa62029-1963-4312-aa13-5983b3777c0a/nVDqMGhLOT.lottie"
-        loop
-        autoplay
-      />
+      src="https://lottie.host/4db99841-8804-4018-a688-d0fa83fcd714/1vsvbp1R9K.lottie"
+      loop
+      autoplay
+    />
     </div>
   );
 };

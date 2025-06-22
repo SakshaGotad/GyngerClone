@@ -21,7 +21,7 @@ const AiSection = () => {
         {/* Right Card with Placeholder Image */}
         <div className="bg-white  w-1/2 h-[700px] ">
           <div className="w-full h-[500px] bg-gray-200 rounded-[30px] flex items-center justify-center">
-            <span className="text-gray-500">Placeholder Image</span>
+         
           </div>
           <div className="mt-10 space-y-2 text-center">
             <h3 className="text-3xl font-normal">No-code integrations</h3>
