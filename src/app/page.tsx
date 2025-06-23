@@ -7,15 +7,16 @@ import HeroSection from "@/components/servercomponent/Herosection.server";
 // import MarqueeDemo from "@/components/MarqueeDemo";
 import MarqueeWrapper from "@/components/Marquee.server";
 
-import Products from "@/components/Products";
-// import Solutions from "@/components/Solutions";
-// import Testimonial from "@/components/Testimonial";
-import TestimonialSection from "@/components/Testimonials";
+
+
+// import TestimonialSection from "@/components/Testimonials";
 
 import React from "react";
 // import SolutionsClient from "@/components/Solutions";
 import SolutionsServer from "@/components/servercomponent/SolutionServer";
 import BlueprintServer from "@/components/servercomponent/BluePrintServer";
+import ProductsServer from "@/components/servercomponent/ProductServer";
+import TestimonialServer from "@/components/servercomponent/TestimonialServer";
 
 
 const page = () => {
@@ -25,10 +26,10 @@ const page = () => {
      {/* <MarqueeDemo/> */}
     <MarqueeWrapper/>
     <BlueprintServer/>
-    <Products/>
+    <ProductsServer/>
     <SolutionsServer/>
     <AiSection/>
-    <TestimonialSection/>
+    <TestimonialServer/>
     <CtaSection/>
     </>
   );

@@ -21,14 +21,18 @@ const MarqueeColumn: React.FC<MarqueeColumnProps> = ({
       transition={{ duration, repeat: Infinity, ease: 'linear' }}
     >
       {slides.map((src, i) => (
-        <Image
+        <div
           key={i}
-          src={src}
-          alt={`marquee-slide-${i}`}
-          width={200}
-          height={200}
-          className="object-contain"
-        />
+          className="bg-white rounded-xl w-32 shadow-md flex items-center justify-center"
+        >
+          <Image
+            src={src}
+            alt={`marquee-slide-${i}`}
+            width={100}
+            height={100}
+            className="object-contain"
+          />
+        </div>
       ))}
     </motion.div>
   );

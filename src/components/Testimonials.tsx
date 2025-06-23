@@ -1,37 +1,18 @@
-'use client'
+'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
-import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const testimonials = [
-  {
-    quote: 'The savings and cash flow benefits allow us to focus on building Lovd instead of over-budgeting for SaaS.',
-    name: 'Noah Elion',
-    role: 'CEO & Founder',
-    image: '/image copy.png',
-    link: '#'
-  },
-  {
-    quote: 'Gynger helped us scale operations faster with minimal financial friction.',
-    name: 'Jane Doe',
-    role: 'COO at TechX',
-    image: '/image copy.png',
-    link: '#'
-  },
-  {
-    quote: 'With Gynger, our procurement process has never been smoother and more cost-effective.',
-    name: 'Alex Smith',
-    role: 'VP Finance, ScaleUp Inc.',
-    image: '/image copy.png',
-    link: '#'
-  }
-];
+type Testimonial = {
+  name: string;
+  position: string;
+  quote: string;
+};
 
-const TestimonialSection = () => {
+export default function TestimonialClient({ testimonials }: { testimonials: Testimonial[] }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -64,8 +45,6 @@ const TestimonialSection = () => {
               nextEl: nextRef.current!,
             }}
             onBeforeInit={(swiper) => {
-              // Bind navigation buttons before Swiper mounts
-              // (important for React refs)
               if (typeof swiper.params.navigation !== 'boolean') {
                 swiper.params.navigation.prevEl = prevRef.current!;
                 swiper.params.navigation.nextEl = nextRef.current!;
@@ -75,28 +54,16 @@ const TestimonialSection = () => {
             slidesPerView={1}
             loop
           >
-            {testimonials.map((t, idx) => (
+            {(testimonials || []).map((t, idx) => (
               <SwiperSlide key={idx}>
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-4 mb-4">
-                    <Image
-                      src={t.image}
-                      alt={t.name}
-                      width={64}
-                      height={64}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <p className="font-medium">{t.name}</p>
-                      <p className="text-sm text-gray-500">{t.role}</p>
-                    </div>
+                  <div className="mb-4">
+                    <p className="font-medium">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.position}</p>
                   </div>
                   <p className="text-2xl font-light leading-relaxed mb-6">
-                    "{t.quote}"
+                    “{t.quote}”
                   </p>
-                  <a href={t.link} className="text-[#3c764f] font-medium hover:underline inline-flex items-center gap-1">
-                    Read full story →
-                  </a>
                 </div>
               </SwiperSlide>
             ))}
@@ -105,6 +72,4 @@ const TestimonialSection = () => {
       </div>
     </section>
   );
-};
-
-export default TestimonialSection;
+}

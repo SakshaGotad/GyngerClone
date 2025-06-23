@@ -12,7 +12,7 @@ const Navbar1 = () => {
 
   return (
     <div className="fixed top-10 left-0 right-0  h-20 flex justify-center  w-full max-w-7xl mx-auto z-50 ">
-      <div className="flex items-center justify-between px-6 py-3 bg-[#042117]/25 backdrop-blur-sm border-[0.5px] border-[#f2f3ee3a] rounded-full shadow-lg w-full max-w-6xl mx-auto relative z-10">
+     <div className="flex items-center justify-between px-6 py-3 bg-[#042117]/80 backdrop-blur-sm border-[0.5px] border-[#f2f3ee3a] rounded-full shadow-lg w-full max-w-6xl mx-auto relative z-10">
 
         <div className="flex items-center">
           <motion.div
