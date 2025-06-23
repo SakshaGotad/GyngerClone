@@ -1,7 +1,13 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-const Footer = () => {
+export default function Footer({ data }) {
+  const footerSections =
+    data?.footer_links?.[0]?.footer_data?.footers || [];
+
+  const left = footerSections.find((f) => f.title === "Left side");
+  const right = footerSections.find((f) => f.title === "Right side");
+
   return (
     <footer className="bg-[#052d2d] text-white py-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-wrap gap-12 justify-between">
@@ -9,13 +15,11 @@ const Footer = () => {
         <div className="flex flex-col gap-6 min-w-[200px]">
           <div className="text-2xl font-semibold">Gynger</div>
           <div className="flex flex-col text-sm gap-2 text-white/90">
-            <a href="#">Gynger Pay</a>
-            <a href="#">Gynger AP Financing</a>
-            <a href="#">Gynger AR Financing</a>
-            <a href="#">Blog</a>
-            <a href="#">FAQs</a>
-            <a href="#">About us</a>
-            <a href="#">Careers</a>
+            {left?.link?.map((item) => (
+              <a key={item.title} href={item.href || "#"}>
+                {item.title}
+              </a>
+            ))}
           </div>
         </div>
 
@@ -23,18 +27,21 @@ const Footer = () => {
         <div className="flex flex-col gap-6 min-w-[200px]">
           <div className="invisible">spacer</div>
           <div className="flex flex-col text-sm gap-2 text-white/90">
-            <a href="#">LinkedIn</a>
-            <a href="#">X / Twitter</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of service</a>
-            <span>contact@gynger.io</span>
+            {right?.link?.map((item) => (
+              item.href ? (
+                <a key={item.title} href={item.href}>{item.title}</a>
+              ) : (
+                <span key={item.title}>{item.title}</span>
+              )
+            ))}
           </div>
         </div>
 
         {/* Right section - Newsletter */}
         <div className="flex flex-col gap-4 flex-1 max-w-sm">
           <p className="text-sm text-white/80">
-            Check out the latest updates to our products here. Stay up to date on all changes by subscribing to our Newsletter.
+            Check out the latest updates to our products here. Stay up to date
+            on all changes by subscribing to our Newsletter.
           </p>
           <div className="flex gap-2 items-center">
             <input
@@ -49,21 +56,11 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom row with logos and copyright */}
+      {/* Bottom row */}
       <div className="mt-16 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex gap-6">
-          <Image
-            src="/badges/builtin.png"
-            alt="BuiltIn Best Places"
-            width={60}
-            height={60}
-          />
-          <Image
-            src="/badges/aicpa.png"
-            alt="AICPA SOC 2"
-            width={60}
-            height={60}
-          />
+          <Image src="/badges/builtin.png" alt="BuiltIn" width={60} height={60} />
+          <Image src="/badges/aicpa.png" alt="AICPA" width={60} height={60} />
         </div>
         <p className="text-sm text-white/70 text-center md:text-right">
           © 2025 Gynger.io — 157 W 18th Street, Floor 5, New York, NY 10011
@@ -71,6 +68,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

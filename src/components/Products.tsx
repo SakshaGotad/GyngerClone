@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import GyngerPayVisual from "../components/ui/GyngerPayVisual"; // This will be a React component
 import Image from "next/image";
+import GyngerCapitalVisual from "./ui/GyngerCapitalVisual";
 
 interface Product {
   _metadata?: { uid: string };
@@ -15,15 +16,7 @@ interface Product {
 
 const productAssets: Record<string, React.ReactNode> = {
   "Gynger Pay": <GyngerPayVisual />,
-  "Gynger Capital": (
-    <Image
-      src="/image copy 4.png" // Upload this asset to `public/`
-      alt="Gynger Capital"
-      width={350}
-      height={220}
-      className="rounded-xl shadow-md"
-    />
-  ),
+  "Gynger Capital": <GyngerCapitalVisual/>,
 };
 
 export default function ProductsClient({ products }: { products: Product[] }) {

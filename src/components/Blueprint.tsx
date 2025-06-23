@@ -38,7 +38,7 @@ export default function BlueprintClient({
             viewport={{ once: true }}
           >
             {sectionTitle.split("lasting")[0]}
-            <span className="italic text-cyan-600">lasting</span> growth
+            <span className="italic text-[#36cf5a]">lasting</span> growth
           </motion.h2>
 
           <motion.button
