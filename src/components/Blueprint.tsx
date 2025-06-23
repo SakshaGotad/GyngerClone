@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import LottieAnimation from "./Lottieanimation";
+import LottieAnimation from "./animations/Lottieanimation";
 
 interface Animation {
   title: string;

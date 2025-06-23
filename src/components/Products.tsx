@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Lottie3 from "./animations/Lottie3";
+import GyngerPayVisual from "../components/ui/GyngerPayVisual"; // This will be a React component
+import Image from "next/image";
 
 interface Product {
   _metadata?: { uid: string };
@@ -12,11 +13,17 @@ interface Product {
   cta?: string;
 }
 
-const productIcons: Record<string, string> = {
-  "Gynger Pay":
-    "https://lottie.host/de64a06e-581a-4d07-b489-428157e15a1f/tgfIQc6Wyk.lottie",
-  "Gynger Capital":
-    "https://lottie.host/a023411f-fe7b-423b-b5f3-422a3118f902/T9O572uGb0.lottie",
+const productAssets: Record<string, React.ReactNode> = {
+  "Gynger Pay": <GyngerPayVisual />,
+  "Gynger Capital": (
+    <Image
+      src="/image copy 4.png" // Upload this asset to `public/`
+      alt="Gynger Capital"
+      width={350}
+      height={220}
+      className="rounded-xl shadow-md"
+    />
+  ),
 };
 
 export default function ProductsClient({ products }: { products: Product[] }) {
@@ -29,6 +36,7 @@ export default function ProductsClient({ products }: { products: Product[] }) {
         transition={{ duration: 0.4, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
       >
+        {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-4">
           <motion.h2
             className="text-3xl sm:text-4xl font-light max-w-xl text-center lg:text-left"
@@ -66,6 +74,7 @@ export default function ProductsClient({ products }: { products: Product[] }) {
           </motion.a>
         </div>
 
+        {/* Cards */}
         <div className="flex flex-col gap-12 relative">
           {products.map((item, index) => (
             <motion.div
@@ -77,6 +86,7 @@ export default function ProductsClient({ products }: { products: Product[] }) {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true, amount: 0.3 }}
             >
+              {/* Huge background text */}
               <motion.div
                 initial="rest"
                 whileHover="hover"
@@ -90,18 +100,21 @@ export default function ProductsClient({ products }: { products: Product[] }) {
                 {item.label}
               </motion.div>
 
-              <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left space-y-4">
-                <h3 className="text-3xl sm:text-4xl font-light">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-base sm:text-xl">
-                  {item.description}
-                </p>
+              {/* Left Text */}
+              <div className="w-full lg:w-1/2 flex flex-col justify-between h-full relative z-10 text-center lg:text-left">
+                <div className="space-y-4">
+                  <h3 className="text-3xl sm:text-4xl font-light">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 text-base sm:text-xl">
+                    {item.description}
+                  </p>
+                </div>
 
                 {item.cta && (
                   <a
                     href="#"
-                    className="inline-flex items-center px-5 py-3 bg-[#f2f2f2] text-black rounded-md hover:bg-[#e7e7e7] transition-colors duration-300 text-sm sm:text-base"
+                    className="mt-[200px] inline-flex items-center justify-center px-5 py-3 bg-[#f2f2f2] text-black rounded-md hover:bg-[#e7e7e7] transition-colors duration-300 text-sm sm:text-base w-full max-w-[220px]"
                   >
                     {item.cta}
                     <svg
@@ -121,10 +134,9 @@ export default function ProductsClient({ products }: { products: Product[] }) {
                 )}
               </div>
 
-              <div className="w-[350px] h-[350px] md:w-80 md:h-80 mt-8 lg:mt-0 lg:ml-8 flex-shrink-0 z-10">
-                {productIcons[item.title] && (
-                  <Lottie3 src={productIcons[item.title]} />
-                )}
+              {/* Right Visual */}
+              <div className="w-[350px] h-auto mt-8 lg:mt-0 lg:ml-16 flex items-center justify-center flex-shrink-0 z-10">
+                {productAssets[item.title] || null}
               </div>
             </motion.div>
           ))}

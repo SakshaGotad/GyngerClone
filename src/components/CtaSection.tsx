@@ -38,6 +38,10 @@ const CtaSection = () => {
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
+          whileHover={{
+            y: 10,
+            transition: { duration: 1 },
+          }}
           viewport={{ once: true }}
           className="hidden md:flex md:w-1/2 justify-end relative mt-10 md:mt-0"
         >

@@ -36,10 +36,9 @@ export default async function HeroSection() {
       <div className="relative z-20 w-full max-w-3xl text-center space-y-6 pt-24 sm:pt-28 md:pt-32 text-white">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
           {data?.hero_heading.split(" ").slice(0, -2).join(" ")}{" "}
-          <span className="text-cyan-500">
+          <span className="text-white">
             {data?.hero_heading.split(" ").slice(-2).join(" ")}
-          </span>
-          {" "}
+          </span>{" "}
           <Typewriter
             text={[
               "with flexible financing.",
@@ -48,7 +47,7 @@ export default async function HeroSection() {
               "using smarter payment solutions.",
             ]}
             speed={70}
-            className="text-yellow-500"
+            className="text-[#91e84f]"
             waitTime={1500}
             deleteSpeed={40}
             cursorChar={"_"}
@@ -61,13 +60,16 @@ export default async function HeroSection() {
 
         {/* Input with embedded button */}
         <div className="w-full flex justify-center px-4">
-          <div className="relative w-full sm:w-96">
+          <div className="relative w-full max-w-md">
             <input
               type="email"
               placeholder="Enter your work email"
-              className="w-full px-4 pr-32 py-4 rounded-md border border-[#0f3d3b] bg-[#0a302b] text-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="w-full px-4 pr-36 py-4 rounded-md border border-[#0f3d3b] bg-[#0a302b] text-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             />
-            <button className="absolute top-1/2 right-1 transform -translate-y-1/2 px-4 py-1.5 bg-[#4aed88] text-white rounded-md hover:bg-green-500 transition text-sm sm:text-base">
+            <button
+              type="submit"
+              className="absolute top-1/2 right-2 -translate-y-1/2 px-4 py-2 bg-[#4aed88] text-white rounded-md hover:bg-green-500 transition text-sm sm:text-base"
+            >
               Get in touch
             </button>
           </div>
