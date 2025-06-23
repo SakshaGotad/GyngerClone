@@ -1,16 +1,27 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const CtaSection = () => {
   return (
-    <section className="py-24  bg-[#d9e1e3]">
-      <div className="max-w-6xl mx-auto h-[700px] bg-white flex flex-col md:flex-row items-center justify-between p-10 rounded-3xl shadow-lg relative overflow-hidden">
-        {/* Left side: Text and form */}
-        <div className="w-full md:w-1/2 space-y-8">
-          <h1 className="text-5xl md:text-6xl font-normal text-gray-900 leading-tight">
+    <section className="py-20 bg-[#d9e1e3]">
+      <div className="max-w-6xl mx-auto bg-white flex flex-col md:flex-row items-center justify-between p-6 md:p-10 rounded-3xl shadow-lg relative overflow-hidden min-h-[700px]">
+        
+        {/* Left: Text + Input */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="w-full md:w-1/2 space-y-8 text-center md:text-left"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 leading-tight">
             Ready to learn more?
           </h1>
-          <div className="w-full relative max-w-md">
+
+          <div className="w-full relative max-w-md mx-auto md:mx-0">
             <input
               type="email"
               placeholder="Enter your email"
@@ -20,11 +31,16 @@ const CtaSection = () => {
               Get in touch
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right side: Image with overlay */}
-        <div className="hidden md:flex md:w-1/2 justify-end relative">
-          {/* Card image with overlay container */}
+        {/* Right: Image + Overlay */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="hidden md:flex md:w-1/2 justify-end relative mt-10 md:mt-0"
+        >
           <div className="relative">
             <Image
               src="/67e2ec6ff072b4bc5eab6f4a_gynger-card (1).avif"
@@ -33,39 +49,39 @@ const CtaSection = () => {
               height={300}
               className="rounded-2xl object-cover z-10"
             />
-
-            {/* Overlay badge */}
-            <div className="absolute bottom-[-70px] left-[-100px] z-30">
+            <div className="absolute bottom-[-70px] left-[-100px] z-20">
               <Image
                 src="/image copy 3.png"
                 alt="Overlay badge"
                 width={400}
                 height={300}
-                className="object-contain "
+                className="object-contain"
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Horizontal line and CTA button inside container */}
-        <div className="absolute bottom-10 left-0 w-full flex flex-col items-center px-10">
-          {/* Divider line */}
-          <div className="w-full h-[10px] bg-[#b7b1bb] mb-6" />
-
-          {/* CTA button */}
-          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-4 md:gap-10">
-            <p className="text-lg text-gray-800 text-center md:text-left">
+        {/* Bottom CTA and divider */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="absolute bottom-6 left-0 w-full px-4 sm:px-8"
+        >
+          <div className="w-full h-[6px] bg-[#b7b1bb] mb-6 rounded-full" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-base sm:text-lg text-center sm:text-left text-gray-800">
               Over <strong>$100 million</strong> in contracts closed
             </p>
-
-            <button className="group flex items-center gap-2  text-gray-600 px-8 py-4 rounded-full text-lg font-semibold transition duration-300">
+            <button className="group flex items-center gap-2 text-gray-600 px-6 py-3 rounded-full text-base sm:text-lg font-semibold transition duration-300">
               Explore More
               <span className="transform transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

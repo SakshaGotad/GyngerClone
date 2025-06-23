@@ -11,8 +11,8 @@ const Navbar1 = () => {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <div className="fixed top-10 left-0 right-0   flex justify-center  w-full max-w-7xl mx-auto z-50 ">
-      <div className="flex items-center justify-between px-6 py-3 bg-[#032c1e]/25 backdrop-blur-sm border-[0.5px] border-[#f2f3ee3a] rounded-full shadow-lg w-full max-w-6xl mx-auto relative z-10">
+    <div className="fixed top-10 left-0 right-0  h-20 flex justify-center  w-full max-w-7xl mx-auto z-50 ">
+      <div className="flex items-center justify-between px-6 py-3 bg-[#042117]/25 backdrop-blur-sm border-[0.5px] border-[#f2f3ee3a] rounded-full shadow-lg w-full max-w-6xl mx-auto relative z-10">
 
         <div className="flex items-center">
           <motion.div
@@ -36,7 +36,7 @@ const Navbar1 = () => {
         
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {["Home", "Pricing", "Docs", "Projects"].map((item) => (
+            {["For Buyers", "For Sellers", "Products", "Solutions","Resources","Company"].map((item) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, y: -10 }}
@@ -44,7 +44,7 @@ const Navbar1 = () => {
                 transition={{ duration: 0.3 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <a href="#" className="text-sm text-gray-900 hover:text-gray-600 transition-colors font-medium">
+                <a href="#" className="text-sm text-white hover:text-gray-600 transition-colors font-medium">
                   {item}
                 </a>
               </motion.div>
@@ -61,7 +61,7 @@ const Navbar1 = () => {
         >
           <a
             href="#"
-            className="inline-flex items-center justify-center px-5 py-2 text-sm text-white bg-black rounded-full hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center justify-center px-5 py-2 text-sm text-black bg-[#36cf5a] rounded-full hover:bg-[#223925] transition-colors"
           >
             Get Started
           </a>

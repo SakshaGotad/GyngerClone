@@ -1,56 +1,56 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import { getData } from '@/lib/getData';
+import { motion } from 'framer-motion';
 
-// Helper to extract bullet points from rich text HTML
 function extractBullets(html: string): string[] {
   const ulMatch = html.match(/<ul>(.*?)<\/ul>/s);
   if (!ulMatch) return [];
-
   const listItems = ulMatch[1].match(/<li>(.*?)<\/li>/g) || [];
   return listItems.map((li) => li.replace(/<\/?li>/g, '').trim());
 }
 
-export default async function Solutions() {
-  const response = await getData({
-    contentType: "solution_section",
-    params: {
-      include_fallback: true,
-      include_branch: false,
-    },
-  });
-
-  const cards = response?.[0]?.card_data?.data ?? [];
-
+export default function SolutionsClient({ cards }: { cards: any[] }) {
   return (
     <section className="py-24 text-white">
-      <div className="max-w-6xl bg-[#042c2d] min-h-[750px] border-0 rounded-3xl mx-auto p-20">
+      <div className="max-w-6xl bg-[#042c2d] rounded-3xl mx-auto px-6 sm:px-8 py-16">
         {/* Header */}
-        <div className="flex justify-between items-center mb-12 mt-8 flex-wrap gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 text-center"
+        >
           <h2 className="text-4xl font-light">Find Your Solution</h2>
           <a
             href="#"
-            className="bg-[#3c764f] text-[#0e0d0d] px-6 py-3 rounded-md font-medium shadow hover:bg-gray-100 transition"
+            className="bg-[#3c764f] text-black px-6 py-3 rounded-md font-medium shadow hover:bg-gray-100 transition"
           >
             Talk to us
           </a>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {cards.map((item, index) => {
             const bullets = extractBullets(item.rich_text_editor);
             return (
-              <div
+              <motion.div
                 key={item._metadata?.uid || index}
-                className="bg-[#075152] text-[#ffffff] min-h-[400px] p-6 rounded-xl shadow-md hover:shadow-lg transition"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                className="bg-[#075152] p-6 rounded-xl shadow-md hover:shadow-lg transition flex flex-col items-center text-center"
               >
-                {/* Circle Icon */}
-                <div className="w-16 h-16 rounded-full bg-[#453] flex items-center justify-center mb-4">
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-full bg-[#453] flex items-center justify-center mb-6">
                   {item.avatar?.url && (
                     <Image
                       src={item.avatar.url}
-                      alt="Solution Icon"
+                      alt="Icon"
                       width={32}
                       height={32}
                       className="object-contain"
@@ -59,20 +59,20 @@ export default async function Solutions() {
                 </div>
 
                 {/* Bullet Points */}
-                <ul className="list-disc list-inside space-y-1 text-sm mb-4">
-                  {bullets.map((bullet, i) => (
-                    <li key={i}>{bullet}</li>
+                <ul className="list-disc list-inside space-y-2 text-base text-white mb-6">
+                  {bullets.map((text, i) => (
+                    <li key={i}>{text}</li>
                   ))}
                 </ul>
 
-                {/* CTA Button */}
+                {/* CTA */}
                 <a
                   href="#"
-                  className="inline-block text-sm font-medium text-[#fff] hover:underline"
+                  className="text-sm font-medium text-white hover:underline mt-auto"
                 >
                   Learn more →
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>
