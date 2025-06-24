@@ -70,7 +70,7 @@ export default function BlueprintClient({
           {cards.map((card, index) => (
             <motion.div
               key={card._metadata.uid}
-              className="bg-[#f3efef] rounded-2xl p-6 flex flex-col items-center lg:items-start text-center lg:text-left min-h-[520px] transition-shadow"
+              className="bg-[#ffffff] rounded-2xl p-6 flex flex-col items-center lg:items-start text-center lg:text-left min-h-[520px] transition-shadow"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -20 , boxShadow: "0px 15px 30px rgba(0,0,0,0.1)"}} // 👈 Card moves down 10px when hovered

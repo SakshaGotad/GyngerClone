@@ -5,7 +5,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 const Lottie2 = () => {
   return (
     <DotLottieReact
-    src="https://lottie.host/47a623e0-b9c1-48fe-aad1-a551c8803cce/rUZ6kBXqRQ.lottie"
+    src="https://cdn.prod.website-files.com/67de8f1c7b26a9b133f316cb/680bcc5659a2c1e948cfcd64_AI.json"
     loop
     autoplay
   />

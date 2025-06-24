@@ -26,7 +26,7 @@ export const Marquee: React.FC<MarqueeProps> = ({ logos }) => {
             <img
               src={logo.url}
               alt={logo.title}
-              className="h-10 w-auto object-contain"
+              className="h-15 w-auto object-contain"
             />
           </div>
         ))}
@@ -43,7 +43,7 @@ export const Marquee: React.FC<MarqueeProps> = ({ logos }) => {
         }
 
         .animate-marquee {
-          animation: scrollMarquee 25s linear infinite;
+          animation: scrollMarquee 30s linear infinite;
         }
       `}</style>
     </div>

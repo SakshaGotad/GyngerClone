@@ -26,7 +26,7 @@ export const getData = async ({
   
       const url = entryUid
         ? `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries/${entryUid}?locale=en-us${query ? `&${query}` : ''}`
-        : `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries?&locale=en-us${query ? `&${query}` : ''}`;
+        : `${process.env.CONTENTSTACK_HOST}v3/content_types/${contentType}/entries?&locale=en-us`;
         
        
         console.log(" url:",url)

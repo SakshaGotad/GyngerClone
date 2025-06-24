@@ -5,7 +5,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const LottieAnimation = ({ url }: { url: string }) => {
   return (
-    <div className="w-64 h-64">
+    <div className="w-full h-full">
       <DotLottieReact
      src={url}  autoplay  loop
     />
